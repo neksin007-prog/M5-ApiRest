@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Evento extends Model
 {
@@ -18,4 +19,9 @@ class Evento extends Model
         'fecha_inicio' => 'datetime',
         'fecha_fin' => 'datetime',
     ];
+
+    public function asistentes(): HasMany
+    {
+        return $this->hasMany(Asistente::class);
+    }
 }
